@@ -27,11 +27,12 @@ describe(@"WikiViewModel", ^{
             
             [viewModel.executeSignal subscribeNext:^(id x) {
                 result = x;
+                
+                
+                [[expectFutureValue(result) shouldEventually] beKindOfClass:[NSArray class]];
+                
+                [[expectFutureValue([result objectAtIndex:0]) shouldEventually] beKindOfClass:[WikiArticle class]];
             }];
-            
-            [[expectFutureValue(result) shouldEventually] beKindOfClass:[NSArray class]];
-            
-            [[expectFutureValue([result objectAtIndex:0]) shouldEventually] beKindOfClass:[WikiArticle class]];
         });
     });
 });

@@ -19,6 +19,3 @@ target 'NerdWikiTests' do
     pod 'Kiwi', '~> 2.3'
 end
 
-    #pod 'RxBinding', :path => 'RxBinding'
-    #pod 'RxNetworking', :path => 'RxNetworking'
-

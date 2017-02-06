@@ -28,11 +28,11 @@ describe(@"WikiService", ^{
                 
                 [service.fetchTopWikies subscribeNext:^(id wikies) {
                     result = wikies;
+                    
+                    [[expectFutureValue(result) shouldEventually] beKindOfClass:[NSArray class]];
+                    
+                    [[expectFutureValue([result objectAtIndex:0]) shouldEventually] beKindOfClass:[WikiArticle class]];
                 }];
-                
-                [[expectFutureValue(result) shouldEventually] beKindOfClass:[NSArray class]];
-                
-                [[expectFutureValue([result objectAtIndex:0]) shouldEventually] beKindOfClass:[WikiArticle class]];
             });
         });
     });
